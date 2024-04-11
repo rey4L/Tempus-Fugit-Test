@@ -9,16 +9,32 @@ class RoomInventoryController {
         $this->model = new RoomInfoModel();
     }
 
-    public function allocateRooms() {
-        $this->model->setStatus("Available");
-        $availableRooms = $this->model->findByAvailability();
-
-        return $availableRooms[0];
+    public function findAll() {
+        $rooms = $this->model->findAll();
     }
 
-    
-    public function setCleaningDate() {
+    public function queryRooms($value, $type) {
+        switch ($type) {
+            case 'STATUS':
+                $this->model->setStatus($value);
+                $this->model->findByStatus();
+                break;
+            case 'TYPE':
+                $this->model->setType($value);
+                $this->model->findByType();
+                break;
+            case 'AMENITIES':
+                $this->model->setType($value);
+                $this->model->findByAmenities();
+                break;
+            default:
+                break;
+        }
+    }
 
+    public function setCleaningDate() {
+        $date = "";
+        $this->model->setCleaningDate($date);
     }
 
 

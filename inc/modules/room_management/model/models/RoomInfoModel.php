@@ -8,14 +8,18 @@ class RoomInfoModel extends BaseModel {
     private $price;
     private $image_url;
     private $status;
+    private $amenities;
+    private $cleaning_date;
+    private $number_of_beds;
+    private $view;
 
     public function __construct() {
         $this->connect();
     }
 
     public function create() {
-        $sql = "INSERT INTO RoomInfo (id, number, type, details, price, image_url, status)
-        VALUES (:id, :number, :type, :details, :price, :image_url, :status)";
+        $sql = "INSERT INTO RoomInfo (id, number, type, details, price, image_url, status, amenities, cleaning_date)
+        VALUES (:id, :number, :type, :details, :price, :image_url, :status, amenities, cleaning_date)";
 
         $new_room = [
             "id"=>$this->id,
@@ -24,7 +28,9 @@ class RoomInfoModel extends BaseModel {
             "details" => $this->details,
             "price" => $this->price,
             "image_url" => $this->image_url,
-            "status" => $this->status
+            "status" => $this->status,
+            "amenities" => $this->amenities,
+            "cleaning_date" => $this->cleaning_date
         ];
 
         $statement = $this->connection->prepare($sql);
@@ -47,17 +53,70 @@ class RoomInfoModel extends BaseModel {
         return $statement->fetch();
     }
 
-    public function findByAvailability() {
-        $sql = "SELECT * FROM RoomInfo WHERE status = :status";
+    public function findByPreferences() {
+        $sql = "SELECT * FROM RoomInfo WHERE status = :status AND type = :type AND number_of_beds = :number_of_beds AND view = :view";
+
+        $search_queries = [
+            "status" => $this->status,
+            "type" => $this->type,
+            "number_of_beds" => $this->number_of_beds,
+            "view" => $this->view
+        ];
 
         $statement = $this->connection->prepare($sql);
-        $statement->execute(['status' => $this->id]);
+        $statement->execute($search_queries);
 
         return $statement->fetchAll();
     }
 
+    public function findByStatus() {
+        $sql = "SELECT * FROM RoomInfo WHERE status = :status";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute(['status' => $this->status]);
+
+        return $statement->fetchAll();
+    }
+
+    public function findByType() {
+        $sql = "SELECT * FROM RoomInfo WHERE type = :type";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute(['type' => $this->type]);
+
+        return $statement->fetchAll();
+    }
+
+    public function findByAmenities() {
+        $sql = "SELECT * FROM RoomInfo WHERE amenities = :amenities";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute(['amenities' => $this->id]);
+
+        return $statement->fetchAll();
+    }
+
+    public function findByNumberOfBeds() {
+        $sql = "SELECT * FROM RoomInfo WHERE number_of_beds = :number_of_beds";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute(['number_of_beds' => $this->number_of_beds]);
+
+        return $statement->fetchAll();
+    }
+
+    public function findByView() {
+        $sql = "SELECT * FROM RoomInfo WHERE view = :view";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute(['view' => $this->view]);
+
+        return $statement->fetchAll();
+    }
+
+
     public function update() {
-        $sql = "UPDATE RoomInfo SET number = :number, type = :type, details = :details, price = :price, image_url = :image_url, status = :status WHERE id = :id";
+        $sql = "UPDATE RoomInfo SET number = :number, type = :type, details = :details, price = :price, image_url = :image_url, status = :status, amenities = :amenities, cleaning_date = :cleaning_date WHERE id = :id";
 
         $updated_room_info = [
             "id" => $this->id,
@@ -66,11 +125,25 @@ class RoomInfoModel extends BaseModel {
             "details" => $this->details,
             "price" => $this->price,
             "image_url" => $this->image_url,
-            "status" => $this->status
+            "status" => $this->status,
+            "amenities" => $this->amenities,
+            "cleaning_date" => $this->cleaning_date
         ];
 
         $statement = $this->connection->prepare($sql);
         $statement->execute($updated_room_info);
+    }
+
+    public function updateCleaningDate() {
+        $sql = "UPDATE RoomInfo SET cleaning_date = :cleaning_date WHERE id = :id";
+
+        $update_cleaning_date = [
+            "id" => $this->id,
+            "cleaning_date" => $this->cleaning_date
+        ];
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute($update_cleaning_date);
     }
 
     public function delete() {
@@ -139,4 +212,36 @@ class RoomInfoModel extends BaseModel {
     public function setStatus($status) {
         $this->status = $status;
     }
+
+    public function setAmenities($amenities) {
+        $this->amenities = $amenities;
+    }
+
+    public function get_amenities() {
+        return $this->amenities;
+    }
+
+    public function setCleaningDate($cleaning_date) {
+        $this->cleaning_date = $cleaning_date;
+    }
+
+    public function getCleaningDate() {
+        return $this->cleaning_date;
+    }
+
+    public function setNumberOfBeds($number_of_beds) {
+        $this->number_of_beds = $number_of_beds;
+    }
+
+    public function getNumberOfBeds() {
+        return $this->number_of_beds;
+    }
+
+    public function setView($view) {
+        $this->view = $view;
+    }
+
+    public function getView($view) {
+        return $this->view;
+    } 
 }

@@ -74,6 +74,10 @@ class Database {
             price               FLOAT(25, 5) NOT NULL,
             image_url           VARCHAR(100),
             status              ENUM('Available', 'Occupied') DEFAULT 'Available',
+            view                VARCHAR(50),
+            crib                BOOLEAN,
+            number_of_beds      INT,
+            cleaning_date       DATE
             PRIMARY KEY         (id)
         );",
         "CREATE TABLE IF NOT EXISTS GuestInfo(
