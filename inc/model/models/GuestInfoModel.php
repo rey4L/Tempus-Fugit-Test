@@ -163,4 +163,8 @@ class GuestInfoModel extends BaseModel {
     public function set_passport_no($passport_no) {
         $this->passport_no = $passport_no;
     }
+
+    public function set_license_no($license_no) {
+        $this->license_no = $license_no;
+    }
 }
