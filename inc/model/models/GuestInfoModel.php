@@ -16,10 +16,13 @@ class GuestInfoModel extends BaseModel {
     }
 
     public function create() {
-        $sql =  "INSERT INTO GuestInfo(first_name, last_name, gender, age, phone_number, email, passport_no, license_no)
-            VALUES (:first_name, :last_name, :gender, :age, :phone_number, :email, :passport_no, :license_no)";
+        // Making a change here
+        $sql =  "INSERT INTO GuestInfo (id, first_name, last_name, gender, age, phone_number, email, passport_no, license_no)
+        VALUES (:id, :first_name, :last_name, :gender, :age, :phone_number, :email, :passport_no, :license_no);";
+        
 
         $new_guest = [
+            "id"=> uniqid(),
             "first_name"=> $this->first_name,
             "last_name"=> $this->last_name,
             "gender"=> $this->gender,
