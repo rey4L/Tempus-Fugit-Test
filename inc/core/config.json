@@ -31,7 +31,8 @@
         "UserController",
         "BillController",
         "RegisterController",
-        "ErrorController"
+        "ErrorController",
+        "GuestInfoController"
     ],
     "MANAGER" : [
         "UserController",
@@ -40,7 +41,8 @@
         "EmployeeController",
         "MenuItemController",
         "RegisterController",
-        "ErrorController"
+        "ErrorController",
+        "GuestInfoController"
     ]
 
 }

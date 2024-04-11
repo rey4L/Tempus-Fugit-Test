@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <form action="<?=BASE_URL."/MenuItem"?>"method="POST" id="menu-back-form"></form>
-    <form class="menu-item-add-form" action="<?=BASE_URL."/MenuItem/create"?>" method="post">
+    <form action="<?=BASE_URL."/GuestInfo"?>"method="POST" id="menu-back-form"></form>
+    <form class="menu-item-add-form" action="<?=BASE_URL."/GuestInfo/create"?>" method="post">
         <p class="form-name-text">
             ADD GUEST
         </p>
@@ -32,16 +32,16 @@
     </select>
 
     <label for="phone">Phone Number</label>
-    <input type="text" id="phone" name="phone" required>
+    <input type="text" id="phone_number" name="phone_number" required>
 
     <label for="email">Email</label>
     <input type="email" id="email" name="email" required>
 
     <label for="passport">Passport Number</label>
-    <input type="text" id="passport" name="passport" required>
+    <input type="text" id="passport_no" name="passport_no" required>
 
     <label for="drivers_license">Driver's License</label>
-    <input type="text" id="drivers_license" name="drivers_license" required>
+    <input type="text" id="license_no" name="license_no" required>
 
         <button type="submit">Submit</button>
         <button type="submit" class="menu-back-button" form="menu-back-form">Back To List</button>

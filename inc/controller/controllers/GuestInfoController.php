@@ -19,28 +19,17 @@ class GuestInfoController extends BaseController {
     }
 
     public function create() {
+    
         
-        list(
-            $first_name, 
-            $last_name,
-            $age,
-            $gender, 
-            $phone_number, 
-            $email, 
-            $passport_no, 
-            $license_no
-
-        ) = $this->validator->sanitize(
-            $_POST['first_name'],
-            $_POST['last_name'],
-            $_POST['age'],
-            $_POST['gender'],
-            $_POST['phone_number'],
-            $_POST['email'],
-            $_POST['passport_no'],
-            $_POST['license_no']
-        );
-
+    $first_name   = $_POST['first_name'] ?? '';
+    $last_name    = $_POST['last_name'] ?? '';
+    $gender       = $_POST['gender'] ?? '';
+    $age          = $_POST['age'] ?? '';
+    $phone_number = $_POST['phone_number'] ?? '';
+    $email        = $_POST['email'] ?? '';
+    $passport_no  = $_POST['passport_no'] ?? '';
+    $license_no   = $_POST['license_no'] ?? '';
+        
         // if (!$this->validateInputs(
         //     $first_name, 
         //     $last_name,
@@ -51,18 +40,18 @@ class GuestInfoController extends BaseController {
         //     $passport_no, 
         //     $license_no
         // )) {
-            $this->view("menu/MenuItemAdd");
-            return;
+            // $this->view("menu/MenuItemAdd");
+            // return;
         // }
 
-        $this->model->get_first_name($first_name);
-        $this->model->get_last_name($last_name);
-        $this->model->get_age($age);
-        $this->model->get_gender($gender);
-        $this->model->get_phone_number($phone_number);
-        $this->model->get_phone_number($email);
-        $this->model->get_passport_no($passport_no);
-        $this->model->get_license_no($license_no);
+        $this->model->set_first_name($first_name);
+        $this->model->set_last_name($last_name);
+        $this->model->set_gender($gender);
+        $this->model->set_age($age);
+        $this->model->set_phone_number($phone_number);
+        $this->model->set_email($email);
+        $this->model->set_passport_no($passport_no);
+        $this->model->set_license_no($license_no);
 
         $this->model->create();
         $this->anchor("menuitem");
@@ -101,20 +90,20 @@ class GuestInfoController extends BaseController {
             $_POST['stock']
         );
 
-        if (!$this->validateInputs(
-            $name,
-            $price,
-            $cost_to_produce,
-            $description,
-            $image,
-            $discount,
-            $tags,
-            $ingredients,
-            $stock_count
-        )) {
-            $this->index();
-            return;
-        }
+        // if (!$this->validateInputs(
+        //     $name,
+        //     $price,
+        //     $cost_to_produce,
+        //     $description,
+        //     $image,
+        //     $discount,
+        //     $tags,
+        //     $ingredients,
+        //     $stock_count
+        // )) {
+        //     $this->index();
+        //     return;
+        // }
         // $this->model->set_id($id);
         // $this->model->set_name($name);
         // $this->model->set_price($price);
@@ -295,55 +284,52 @@ class GuestInfoController extends BaseController {
         }
     }
 
-    private function validateInputs($name, $price, $cost_to_produce, $description, $image, $discount, $tags, $ingredients, $stock_count) {
-        switch (false) {
-            case $this->validator->isString($name):
-                $this->error("Name should not be empty!");
-                return false;
-                break;
-            case $this->validator->isInt($price):
-                $this->error("Price should be a number!. Example: 1, 24.5");
-                return false;
-                break;
-            case $this->validator->isFloat($cost_to_produce):
-                $this->error("Cost to produce should be a valid floating number! Example 0.1, 4");
-                return false;
-                break;
-            case $this->validator->isString($description):
-                $this->error("Description should not be empty!");
-                return false;
-                break;
-            case $this->validator->isString($image):
-                $this->error("Image should not be empty!");
-                return false;
-                break;
-            case $this->validator->isFloat($discount):
-                $this->error("Discount should be a valid floating number! Example 0.1, 4");
-                return false;
-                break;
-            case $this->validator->validateDiscount($discount):
-                $this->error("Discount should be between 1 and 0! Example 0.1");
-                return false;
-                break;
-            case $this->validator->validateTags($tags):
-                $this->error("Tags should be in valid format and should not be empty! Example tag1,tag2");
-                return false;
-                break;
-            case $this->validator->validateTags($ingredients):
-                $this->error("Ingredients should be in valid format and should not be empty! Example ingredient1,ingredient2");
-                return false;
-                break;
-            case $this->validator->isInt($stock_count):
-                $this->error("Stock count should be a number!");
-                return false;
-                break;
-            default:
-                return true;
-                break;
-        }
-        return true;
-    }
-
-
-  
+    // private function validateInputs($name, $price, $cost_to_produce, $description, $image, $discount, $tags, $ingredients, $stock_count) {
+    //     switch (false) {
+    //         case $this->validator->isString($name):
+    //             $this->error("Name should not be empty!");
+    //             return false;
+    //             break;
+    //         case $this->validator->isInt($price):
+    //             $this->error("Price should be a number!. Example: 1, 24.5");
+    //             return false;
+    //             break;
+    //         case $this->validator->isFloat($cost_to_produce):
+    //             $this->error("Cost to produce should be a valid floating number! Example 0.1, 4");
+    //             return false;
+    //             break;
+    //         case $this->validator->isString($description):
+    //             $this->error("Description should not be empty!");
+    //             return false;
+    //             break;
+    //         case $this->validator->isString($image):
+    //             $this->error("Image should not be empty!");
+    //             return false;
+    //             break;
+    //         case $this->validator->isFloat($discount):
+    //             $this->error("Discount should be a valid floating number! Example 0.1, 4");
+    //             return false;
+    //             break;
+    //         case $this->validator->validateDiscount($discount):
+    //             $this->error("Discount should be between 1 and 0! Example 0.1");
+    //             return false;
+    //             break;
+    //         case $this->validator->validateTags($tags):
+    //             $this->error("Tags should be in valid format and should not be empty! Example tag1,tag2");
+    //             return false;
+    //             break;
+    //         case $this->validator->validateTags($ingredients):
+    //             $this->error("Ingredients should be in valid format and should not be empty! Example ingredient1,ingredient2");
+    //             return false;
+    //             break;
+    //         case $this->validator->isInt($stock_count):
+    //             $this->error("Stock count should be a number!");
+    //             return false;
+    //             break;
+    //         default:
+    //             return true;
+    //             break;
+    //     }
+    //     return true;
+    // }
 }

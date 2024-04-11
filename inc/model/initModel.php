@@ -11,6 +11,7 @@ require __DIR__ . "/models/EmployeeModel.php";
 require __DIR__ . "/models/MenuItemModel.php";
 require __DIR__ . "/models/BillItemModel.php";
 require __DIR__ . "/models/UserModel.php";
+require __DIR__ . "/models/GuestInfoModel.php";
 
 // Include any managers needed
 require __DIR__ . "/managers/BillManager.php";
