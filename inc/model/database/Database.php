@@ -65,6 +65,18 @@ class Database {
             employee_id         INT,
             FOREIGN KEY         (employee_id) REFERENCES Employee(id) ON DELETE CASCADE,
             PRIMARY KEY         (id)
+        );",
+        "CREATE TABLE IF NOT EXISTS GuestInfo(
+            id                  INT AUTO_INCREMENT,
+            first_name          VARCHAR(30) NOT NULL,
+            last_name           VARCHAR(30) NOT NULL,
+            gender              BOOLEAN,
+            age                 INT,
+            phone_number        VARCHAR(20) NOT NULL,
+            email               VARCHAR(20) NOT NULL,
+            passport_no         VARCHAR(20) NOT NULL,
+            license_no         VARCHAR(20) NOT NULL,
+            PRIMARY KEY         (id)
         );"
     ];
 
@@ -78,6 +90,10 @@ class Database {
         "INSERT IGNORE INTO Employee(id, first_name, last_name, other_names, gender, age, dob, job_role, email, contact_number, image_url, status)
          VALUES (:id, :first_name, :last_name, :other_names, :gender, :age, :dob, :job_role, :email, :contact_number, :image_url, :status)
         "; 
+    private $initGuestDataSQL =
+    "INSERT IGNORE INTO GuestInfo(id, first_name, last_name, gender, age, phone_number, email, passport_no, license_no)
+     VALUES (:id, :first_name, :last_name, :gender, :age, :phone_number, :email, :passport_no, :license_no)
+    ";
 
     public function connect() {
         $driver = DB_DRIVER;
@@ -104,6 +120,7 @@ class Database {
                     setcookie("init", true, time() + (10 * 365 * 24 * 60 * 60), "/");
                     $this->menuItemInit();
                     $this->employeeDataInit();
+                    $this->guestDataInit();
                 }
             }
         } catch (PDOException $e) {
@@ -203,11 +220,31 @@ class Database {
             $statement = $this->connection->prepare($this->initEmployeeDataSQL);
             $statement->execute($data);
         }
+    }
 
+    private function guestDataInit() {
+
+        $guest_data = [
+            [
+                'id' => 1,
+                'first_name' => "Jon",
+                'last_name' => "Snow",
+                'gender' => 1,
+                'age' => 37,
+                'phone_number' => '656-5334',
+                'email' => 'davejohn@gmail.com',
+                'passport_no' => '69420-1234',
+                'license_no' => '69420'
+            ]
+        ];
+
+        foreach ($guest_data as $data) {
+            $statement = $this->connection->prepare($this->initGuestDataSQL);
+            $statement->execute($data);
+        }
     }
 
     public function getConnection() {
         return $this->connection;
     }
 }
-
