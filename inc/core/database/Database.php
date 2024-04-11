@@ -76,6 +76,8 @@ class Database {
             email               VARCHAR(50) NOT NULL,
             passport_no         VARCHAR(20) NOT NULL,
             license_no         VARCHAR(20) NOT NULL,
+            room_id             INT, 
+            FOREIGN KEY         (room_id) REFERENCES RoomInfo(id) ON DELETE CASCADE,
             PRIMARY KEY         (id)
         );",
         "CREATE TABLE IF NOT EXISTS RoomInfo(

@@ -1,7 +1,29 @@
 {
     "GET" : [
         "index",
-        "logout"
+        "logout",
+        "findAll",
+        "view",
+        "create",
+        "update",
+        "delete",
+        "findOne",
+        "anchor",
+        "error",
+        "index",
+        "filterByStatus",
+        "filterByDate",
+        "searchById",
+        "searchByLastName",
+        "searchByName",
+        "login",
+        "logout",
+        "register",
+        "registerPage",
+        "showMostProfitableItems",
+        "showMostSoldItems",
+        "showMostSoldWithinPeriod",
+        "showMostSoldWithinPeriodLine"
     ],
     "POST" : [
         "findAll",
@@ -32,7 +54,8 @@
         "BillController",
         "RegisterController",
         "ErrorController",
-        "GuestInfoController"
+        "GuestInfoController",
+        "TestController"
     ],
     "MANAGER" : [
         "UserController",
@@ -42,7 +65,8 @@
         "MenuItemController",
         "RegisterController",
         "ErrorController",
-        "GuestInfoController"
+        "GuestInfoController",
+        "TestController"
     ]
 
 }
