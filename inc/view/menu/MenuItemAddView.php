@@ -12,34 +12,36 @@
     <form action="<?=BASE_URL."/MenuItem"?>"method="POST" id="menu-back-form"></form>
     <form class="menu-item-add-form" action="<?=BASE_URL."/MenuItem/create"?>" method="post">
         <p class="form-name-text">
-            CREATE MENU ITEM
+            ADD GUEST
         </p>
-        <label for="name">Name</label>
-        <input type="text" name="name" required>
+    
+    <label for="first_name">First Name</label>
+    <input type="text" id="first_name" name="first_name" required>
 
-        <label for="tags">Tags <img class="info-icon" src="<?= RESOURCE_URL."info_icon.png"?>" alt="Info icon" title="No spaces, separated by commas(,)"></label>
-        <input type="text" name="tags" required>
+    <label for="last_name">Last Name</label>
+    <input type="text" id="last_name" name="last_name" required>
 
-        <label for="price">Price</label>
-        <input type="text" name="price" required>
+    <label for="age">Age</label>
+    <input type="text" id="age" name="age" required>
 
-        <label for="cost-to-produce">Cost to produce</label>
-        <input type="text" name="cost-to-produce" required>
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
 
-        <label for="description">Description</label>
-        <input type="text" name="description" required>
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" name="phone" required>
 
-        <label for="stock">Stock</label>
-        <input type="text" name="stock" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
 
-        <label for="image">Image Url</label>
-        <input type="text" name="image" required>
+    <label for="passport">Passport Number</label>
+    <input type="text" id="passport" name="passport" required>
 
-        <label for="discount">Discount <img class="info-icon" src="<?= RESOURCE_URL."info_icon.png"?>" alt="Info icon" title="Enter the discount percentage in decimal form (e.g. 0.5 for 50% off)"></label>
-        <input type="text" name="discount" required>
-
-        <label for="ingredients">Ingredients <img class="info-icon" src="<?= RESOURCE_URL."info_icon.png"?>" alt="Info icon" title="No spaces, separated by commas(,)"></label>
-        <input type="text" name="ingredients" required>
+    <label for="drivers_license">Driver's License</label>
+    <input type="text" id="drivers_license" name="drivers_license" required>
 
         <button type="submit">Submit</button>
         <button type="submit" class="menu-back-button" form="menu-back-form">Back To List</button>
