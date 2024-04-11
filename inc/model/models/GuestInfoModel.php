@@ -132,6 +132,10 @@ class GuestInfoModel extends BaseModel {
         return $this->passport_no;
     }
 
+    public function get_license_no() {
+        return $this->license_no;
+    }
+
     public function set_id($id) {
         $this->id = $id;
     }

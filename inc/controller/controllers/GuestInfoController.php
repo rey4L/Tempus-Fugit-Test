@@ -1,6 +1,6 @@
 <?php
 
-class MenuItemController extends BaseController {
+class GuestInfoController extends BaseController {
     use SearchAndFilter;
 
     private $model;
@@ -9,8 +9,8 @@ class MenuItemController extends BaseController {
 
     public function __construct() {
         $this->model = new GuestInfoModel();
-        $this->manager = new MenuItemManager();
-        $this->validator = new MenuItemValidator();
+        // $this->manager = new MenuItemManager();
+        // $this->validator = new GuestInfoValidator();
     }
 
     public function index() {
@@ -41,19 +41,19 @@ class MenuItemController extends BaseController {
             $_POST['license_no']
         );
 
-        if (!$this->validateInputs(
-            $first_name, 
-            $last_name,
-            $age,
-            $gender, 
-            $phone_number, 
-            $email, 
-            $passport_no, 
-            $license_no
-        )) {
+        // if (!$this->validateInputs(
+        //     $first_name, 
+        //     $last_name,
+        //     $age,
+        //     $gender, 
+        //     $phone_number, 
+        //     $email, 
+        //     $passport_no, 
+        //     $license_no
+        // )) {
             $this->view("menu/MenuItemAdd");
             return;
-        }
+        // }
 
         $this->model->get_first_name($first_name);
         $this->model->get_last_name($last_name);
@@ -62,7 +62,7 @@ class MenuItemController extends BaseController {
         $this->model->get_phone_number($phone_number);
         $this->model->get_phone_number($email);
         $this->model->get_passport_no($passport_no);
-        $this->model->set_ingredients($license_no);
+        $this->model->get_license_no($license_no);
 
         $this->model->create();
         $this->anchor("menuitem");
@@ -115,18 +115,18 @@ class MenuItemController extends BaseController {
             $this->index();
             return;
         }
-        $this->model->set_id($id);
-        $this->model->set_name($name);
-        $this->model->set_price($price);
-        $this->model->set_cost_to_produce($cost_to_produce);
-        $this->model->set_description($description);
-        $this->model->set_image($image);
-        $this->model->set_discount($discount);
-        $this->model->set_tags($tags);
-        $this->model->set_ingredients($ingredients);
-        $this->model->set_stock_count($stock_count);
-        $this->model->set_items_sold(0);
-        $this->model->set_profit_generated(0);
+        // $this->model->set_id($id);
+        // $this->model->set_name($name);
+        // $this->model->set_price($price);
+        // $this->model->set_cost_to_produce($cost_to_produce);
+        // $this->model->set_description($description);
+        // $this->model->set_image($image);
+        // $this->model->set_discount($discount);
+        // $this->model->set_tags($tags);
+        // $this->model->set_ingredients($ingredients);
+        // $this->model->set_stock_count($stock_count);
+        // $this->model->set_items_sold(0);
+        // $this->model->set_profit_generated(0);
 
         $this->model->update();
         $this->anchor("menuitem");
