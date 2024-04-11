@@ -41,11 +41,20 @@ class GuestInfoModel extends BaseModel {
         return $statement->fetchAll(); 
     }
 
-    public function findAllByName() {
-        $sql = "SELECT * FROM GuestInfo WHERE name LIKE :first_name OR name LIKE :last_name";
+    public function findAllByFirstName() {
+        $sql = "SELECT * FROM GuestInfo WHERE first_name LIKE :first_name";
 
         $statement = $this->connection->prepare($sql);
-        $statement->execute(['name' => $this->first_name . " " . $this->last_name]);
+        $statement->execute(['first_name' => $this->first_name]);
+
+        return $statement->fetchAll();
+    }
+
+    public function findAllByLastName() {
+        $sql = "SELECT * FROM GuestInfo WHERE last_name LIKE :last_name";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute(['last_name' => $this->last_name]);
 
         return $statement->fetchAll();
     }

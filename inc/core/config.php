@@ -9,11 +9,11 @@ define("DB_USER", "root");
 define("DB_USER_PASSWORD", '');       
 
 // change this to match your project directory
-define("BASE_URL", "/Tempus_Fugit_Project");         
+define("BASE_URL", "/Tempus-Fugit-Test");         
 
 // change this to match your project directory 
-define("CSS_URL", "http://localhost/Tempus_Fugit_Project/public/css/");        // URL for CSS files
-define("RESOURCE_URL", "http://localhost/Tempus_Fugit_Project/public/images/");// URL for resource files (images, etc.)
+define("CSS_URL", "http://localhost/Tempus-Fugit-Test/public/css/");        // URL for CSS files
+define("RESOURCE_URL", "http://localhost/Tempus-Fugit-Test/public/images/");// URL for resource files (images, etc.)
 
 // for intellisense
 define("POST", "POST");   
