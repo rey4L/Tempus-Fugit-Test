@@ -305,7 +305,7 @@ class Database {
                 'type' => "Deluxe",
                 'details' => "This is a deluxe room",
                 'price' => 3000,
-                'image' => 'room5.jpg',
+                'image_url' => 'room5.jpg',
                 'status' => 'Available'
             ]
         ];
