@@ -71,26 +71,25 @@ class Database {
             first_name          VARCHAR(30) NOT NULL,
             last_name           VARCHAR(30) NOT NULL,
             gender              ENUM('Male', 'Female', 'Other') NOT NULL,
-            age                 INT,
+            age                 INT NOT NULL,
             phone_number        VARCHAR(20) NOT NULL,
             email               VARCHAR(50) NOT NULL,
             passport_no         VARCHAR(20) NOT NULL,
             license_no         VARCHAR(20) NOT NULL,
             PRIMARY KEY         (id)
         );",
-            "CREATE TABLE IF NOT EXISTS RoomInfo(
-                id                  INT AUTO_INCREMENT,
-                number              INT,
-                type                ENUM('Single', 'Double', 'Deluxe') DEFAULT 'Single' NOT NULL,
-                details             VARCHAR(100) NOT NULL,
-                price               FLOAT(25, 5) NOT NULL,
-                image_url           VARCHAR(100),
-                status              ENUM('Available', 'occupied') DEFAULT 'active',
-                PRIMARY KEY         (id)
-            );"
+        "CREATE TABLE IF NOT EXISTS RoomInfo(
+            id                  INT AUTO_INCREMENT,
+            number              INT,
+            type                ENUM('Single', 'Double', 'Deluxe') DEFAULT 'Single' NOT NULL,
+            details             VARCHAR(100) NOT NULL,
+            price               FLOAT(25, 5) NOT NULL,
+            image_url           VARCHAR(100),
+            status              ENUM('Available', 'Occupied') DEFAULT 'Available',
+            PRIMARY KEY         (id)
+        );"
     ];
 
-    
 
     private $initMenuItemSQL =
      "INSERT IGNORE INTO MenuItem(id, name, price, cost_to_produce, description, image, discount, tags, ingredients, stock_count, items_sold, profit_generated)
@@ -98,17 +97,14 @@ class Database {
 
     private $initEmployeeDataSQL =
         "INSERT IGNORE INTO Employee(id, first_name, last_name, other_names, gender, age, dob, job_role, email, contact_number, image_url, status)
-         VALUES (:id, :first_name, :last_name, :other_names, :gender, :age, :dob, :job_role, :email, :contact_number, :image_url, :status)
-        "; 
+         VALUES (:id, :first_name, :last_name, :other_names, :gender, :age, :dob, :job_role, :email, :contact_number, :image_url, :status)"; 
     private $initGuestDataSQL =
     "INSERT IGNORE INTO GuestInfo(id, first_name, last_name, gender, age, phone_number, email, passport_no, license_no)
-     VALUES (:id, :first_name, :last_name, :gender, :age, :phone_number, :email, :passport_no, :license_no)
-    ";
+     VALUES (:id, :first_name, :last_name, :gender, :age, :phone_number, :email, :passport_no, :license_no)";
 
     private $initRoomDataSQL =
     "INSERT IGNORE INTO RoomInfo(id, number, type, details, price, image_url, status)
-     VALUES (:id, :number, :type, :details, :price, :image_url, :status)
-    ";
+     VALUES (:id, :number, :type, :details, :price, :image_url, :status)";
 
     public function connect() {
         $driver = DB_DRIVER;
@@ -242,10 +238,10 @@ class Database {
 
         $guest_data = [
             [
-                'id' => 1,
-                'number' => 10,
+                'id' => 12345,
+                'first_name' => "Jon",
                 'last_name' => "Snow",
-                'gender' => 1,
+                'gender' => 'Male',
                 'age' => 37,
                 'phone_number' => '656-5334',
                 'email' => 'davejohn@gmail.com',
@@ -271,8 +267,8 @@ class Database {
                 'type' => "Single",
                 'details' => "This is a single room",
                 'price' => 1000,
-                'image' => 'room1.jpg',
-                'status' => 'available'
+                'image_url' => 'room1.jpg',
+                'status' => 'Available'
             ],
             [
                 'id' => 2,
@@ -280,8 +276,8 @@ class Database {
                 'type' => "Single",
                 'details' => "This is a single room",
                 'price' => 1000,
-                'image' => 'room2.jpg',
-                'status' => 'available'
+                'image_url' => 'room2.jpg',
+                'status' => 'Available'
             ],
             [
                 'id' => 3,
@@ -289,8 +285,8 @@ class Database {
                 'type' => "Double",
                 'details' => "This is a double room",
                 'price' => 2000,
-                'image' => 'room3.jpg',
-                'status' => 'available'  
+                'image_url' => 'room3.jpg',
+                'status' => 'Available'  
             ],
             [
                 'id' => 4,
@@ -298,8 +294,8 @@ class Database {
                 'type' => "Double",
                 'details' => "This is a double room",
                 'price' => 2000,
-                'image' => 'room4.jpg',
-                'status' => 'available'
+                'image_url' => 'room4.jpg',
+                'status' => 'Available'
             ],
             [
                 'id' => 5,
@@ -308,7 +304,7 @@ class Database {
                 'details' => "This is a deluxe room",
                 'price' => 3000,
                 'image' => 'room5.jpg',
-                'status' => 'available'
+                'status' => 'Available'
             ]
         ];
 
