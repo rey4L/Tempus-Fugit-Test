@@ -1,0 +1,33 @@
+table {
+    width: 80%;
+    margin: 4vh auto;
+    border-collapse: collapse;
+    border-bottom: 4px solid #085993;
+    border-right: 4px solid #085993;
+}
+
+th {
+    background-color: #8DCFFF;
+    color: white;
+    font-size: 1.2em;
+    padding: 1vh;
+    text-align: center;
+}
+
+td {
+    border: 1px solid #C0DFFF;
+    height: 3vh;
+    text-align: center;
+}
+
+img {
+    width: 1vw;
+    height: auto;
+    margin: 5% auto;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

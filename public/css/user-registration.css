@@ -1,0 +1,109 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+}
+
+.registration-form {
+    width: 500px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(255, 105, 180, 0.5);
+    animation: borderGlow 2s infinite alternate;
+}
+
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 8px 16px rgba(255, 105, 180, 0.5); 
+    }
+    100% {
+        box-shadow: 0 8px 16px rgba(255, 105, 180, 0.5); 
+    }
+}
+
+
+.form-name-text {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.form-info-text {
+    color: #555;
+    font-size: 1.2em; 
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: normal; 
+    color: #555;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+input:focus,
+select:focus {
+    border-color: #3498db; 
+}
+
+button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+}
+
+.registration-back-form {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.registration-back-form button {
+    background-color: #95a5a6;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.registration-back-form button:hover {
+    background-color: #7f8c8d;
+}
+
+.registration-form button {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    font-weight: bold;
+}

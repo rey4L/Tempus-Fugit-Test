@@ -1,0 +1,73 @@
+.search-bar-container {
+    border-radius: 60px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    width: 85%;
+    padding: 15px;
+    margin: 2vh auto;
+    justify-content: space-evenly;
+}
+
+.search-form {
+    width: 60%;
+    margin-left: 2%;
+    display: flex;
+}
+
+/* Style for the text input */
+.search-bar {
+    flex-grow: 1; /* Take as much space as possible */
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+/* Style for the search button */
+.search-button {
+    background-color: #fff;
+    border: none;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Style for the image buttons */
+.search-icon, .add-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Style for the dropdowns and clear search button */
+.search-bar-dropdown-1,
+.search-bar-dropdown-2,
+.clear-search {
+    text-align: center;
+    border: 2px solid #95C5FF;
+    border-radius: 20px; 
+    padding: 8px 10px;
+    background-color: #95C5FF;
+    color: white;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.search-bar-add-button {
+    background-color: #fff;
+    border: none;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.clear-search:hover,
+.search-bar-dropdown-1:hover,
+.search-bar-dropdown-2:hover {
+    background-color: white;
+    color: #95C5FF;
+    border: 2px solid #95C5FF;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}

@@ -1,0 +1,29 @@
+.graph-div {
+    width: 63%;
+    margin: 5.5vh auto;
+    box-sizing: border-box;
+}
+
+.switch-graph-button,
+.graph-back-button {
+    text-align: center;
+    border: 2px solid #95C5FF;
+    border-radius: 20px; 
+    padding: 8px 8px;
+    background-color: #95C5FF;
+    color: white;
+    cursor: pointer;
+    margin: 2vh 0 0 0;
+}
+
+.switch-graph-button,
+.graph-back-button:hover {
+    background-color: white;
+    color: #95C5FF;
+    border: 2px solid #95C5FF;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.back-to-register-form {
+    text-align: center;
+}

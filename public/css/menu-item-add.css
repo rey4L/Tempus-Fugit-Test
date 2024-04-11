@@ -1,0 +1,118 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+}
+
+.menu-item-add-form {
+    width: 600px;
+    margin: auto;
+    margin-top: 5vh;
+    background: #ecf0f1;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+    animation: glowAnimation 2s infinite alternate;
+}
+
+.menu-item-add-form .form-name-text {
+    font-size: 2.8em;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px; 
+}
+
+
+.menu-item-add-form .form-info-text {
+    color: #555;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menu-item-add-form label {
+    display: block;
+    margin: 12px 0 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.menu-item-add-form input,
+.menu-item-add-form select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    color: #333;
+}
+
+.menu-item-add-form input:focus,
+.menu-item-add-form select:focus {
+    border-color: #3498db;
+}
+
+.menu-item-add-form button,
+.menu-item-add-form .menu-back-button button {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: #fff;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    width: auto;
+    margin: 0 auto; 
+}
+
+.menu-item-add-form button:hover,
+.menu-item-add-form .menu-back-button button:hover {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+}
+
+.menu-item-add-form .menu-back-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.menu-item-add-form .menu-back-button button {
+    background-color: #95a5a6;
+    color: #fff;
+    padding: 14px 30px; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.menu-item-add-form .menu-back-button button:hover {
+    background-color: #7f8c8d;
+}
+
+@keyframes glowAnimation {
+    0% {
+        box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(52, 152, 219, 0.8);
+    }
+}

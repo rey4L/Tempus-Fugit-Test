@@ -1,0 +1,46 @@
+{
+    "GET" : [
+        "index",
+        "logout"
+    ],
+    "POST" : [
+        "findAll",
+        "view",
+        "create",
+        "update",
+        "delete",
+        "findOne",
+        "anchor",
+        "error",
+        "index",
+        "filterByStatus",
+        "filterByDate",
+        "searchById",
+        "searchByLastName",
+        "searchByName",
+        "login",
+        "logout",
+        "register",
+        "registerPage",
+        "showMostProfitableItems",
+        "showMostSoldItems",
+        "showMostSoldWithinPeriod",
+        "showMostSoldWithinPeriodLine"
+    ],
+    "CASHIER" : [
+        "UserController",
+        "BillController",
+        "RegisterController",
+        "ErrorController"
+    ],
+    "MANAGER" : [
+        "UserController",
+        "BillController",
+        "MenuItemController",
+        "EmployeeController",
+        "MenuItemController",
+        "RegisterController",
+        "ErrorController"
+    ]
+
+}

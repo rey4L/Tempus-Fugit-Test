@@ -1,0 +1,29 @@
+.column-1, .column-3 {
+    width: 15%;
+}
+
+.column-2, .column-4 {
+    width: 20%;
+}
+
+.actions-container {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    width: 20%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.action-button:hover {
+    transform: scale(1.2);
+}
+
+.button-form {
+    display: inline-flex;
+    margin: 1vh 0;
+}

@@ -1,0 +1,229 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+}
+
+.employee-registration-form {
+    width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(127, 255, 212, 0.6);
+    animation: glowAnimation 2s infinite alternate;
+}
+
+@keyframes glowAnimation {
+    0% {
+        box-shadow: 0 8px 20px rgba(127, 255, 212, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(127, 255, 212, 0.8);
+    }
+}
+
+.form-name-text {
+    font-size: 2.8em;
+    font-weight: bold;
+    text-align: center;
+    color: #20b2aa;
+    margin-bottom: 20px;
+}
+
+.form-info-text {
+    color: #555;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.employee-registration-form label {
+    display: block;
+    margin: 12px 0 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.employee-registration-form input,
+.employee-registration-form select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 2px solid #bbb;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    color: #333;
+}
+
+.employee-registration-form input:focus,
+.employee-registration-form select:focus {
+    border-color: #20b2aa;
+}
+
+.employee-registration-form button,
+.employee-back-form button {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: #fff;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    display: block;
+    width: auto;
+    margin: 0 auto; 
+    margin-bottom: 10px; 
+}
+
+.employee-registration-form button:hover,
+.employee-back-form button:hover {
+    background: linear-gradient(135deg, #008080, #20b2aa);
+}
+
+.employee-back-form {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.employee-back-form button {
+    background-color: #546e7a;
+    color: #fff;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.employee-back-form button:hover {
+    background-color: #455a64;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a237e, #00acc1);
+}
+
+.employee-registration-form {
+    width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(127, 255, 212, 0.6);
+    animation: glowAnimation 2s infinite alternate;
+}
+
+@keyframes glowAnimation {
+    0% {
+        box-shadow: 0 8px 20px rgba(127, 255, 212, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(127, 255, 212, 0.8);
+    }
+}
+
+.form-name-text {
+    font-size: 2.8em;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(to right, #1a237e, #00acc1);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+}
+
+
+.form-info-text {
+    color: #555;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.employee-registration-form label {
+    display: block;
+    margin: 12px 0 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.employee-registration-form input,
+.employee-registration-form select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 2px solid #bbb;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    color: #333;
+}
+
+.employee-registration-form input:focus,
+.employee-registration-form select:focus {
+    border-color: #20b2aa;
+}
+
+.employee-registration-form button,
+.employee-back-form button {
+    background: linear-gradient(to right, #1a237e, #00acc1);;
+    color: #fff;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    display: block;
+    width: auto;
+    margin: 0 auto; 
+    margin-bottom: 10px; 
+}
+
+.employee-registration-form button:hover,
+.employee-back-form button:hover {
+    background: linear-gradient(to right, #1a237e, #00acc1);;
+}
+
+.employee-back-form {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.employee-back-form button {
+    background-color: #546e7a;
+    color: #fff;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.employee-back-form button:hover {
+    background-color: #455a64;
+}

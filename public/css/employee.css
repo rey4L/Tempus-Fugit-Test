@@ -1,0 +1,154 @@
+.employee-view-cancel-button {
+    width: 250px;
+    height: 40px;
+    border: none;
+    background-color: red;
+    border-radius: 0.5vw;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.employee-view-save-button {
+    margin-top: 20px;
+    width: 250px;
+    height: 40px;
+    border: none;
+    background-color: #449AFF;
+    border-radius: 0.5vw;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    margin-left: 10px;
+}
+
+.employee-view-edit-button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.employee-view-delete-button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.employee-view-cancel-button:hover {
+    transform: scale(1.05);
+}
+
+.employee-view-save-button:hover {
+    transform: scale(1.05);
+}
+
+.employee-view-cancel-button:disabled {
+    opacity: 0;
+}
+
+.employee-view-save-button:disabled {
+    opacity: 0;
+}
+
+.employee-view-container {
+    margin-top: 50px;
+}
+
+.employee-view-status-container {
+   
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+
+    align-items: center;
+    margin-top: 10px;
+}
+
+.employee-view-status {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+.employee-view-status-icon {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    margin-top: -15px;
+}
+
+.employee-view-row-container {
+    width: calc(100% + 30px);
+    display: flex;
+    flex-direction: row;
+}
+
+.employee-view-actions-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.employee-view-actions-container img {
+    width: 30px;
+    height: 30px;
+    transition: all 0.2s linear;
+}
+
+.employee-view-actions-container img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.first-name-container{
+    width: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+.last-name-container{
+    width: calc(50% - 10px);
+    margin-left: 10px;
+}
+
+.employee-view-input-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #F5FAFF;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.employee-view-input-container label {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.employee-view-input-container input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+ 
+}
+
+.employee-view-input-container input:focus {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.phone-number-container {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+.email-container {
+    width: calc(50% - 10px);
+    margin-left: 10px;
+}
+
+.employee-view-picture {
+    width: 500px;
+    height: auto;
+}
