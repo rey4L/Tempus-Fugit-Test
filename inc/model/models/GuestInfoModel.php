@@ -136,31 +136,31 @@ class GuestInfoModel extends BaseModel {
         $this->id = $id;
     }
 
-    public function set_first_name() {
-        $this->first_name;
+    public function set_first_name($first_name) {
+        $this->first_name = $first_name;
     }
 
-    public function set_last_name() {
-        $this->last_name;
+    public function set_last_name($last_name) {
+        $this->last_name = $last_name;
     }
 
-    public function set_gender() {
-        $this->gender;
+    public function set_gender($gender) {
+        $this->gender= $gender;
     }
 
-    public function set_age() {
-        $this->age;
+    public function set_age($age) {
+        $this->age = $age;
     }
 
-    public function set_phone_number() {
-        $this->phone_number;
+    public function set_phone_number($phone_number) {
+        $this->phone_number = $phone_number;
     }
 
-    public function set_email() {
-        $this->email;
+    public function set_email($email) {
+        $this->email = $email;
     }
 
-    public function set_passport_no() {
-        $this->passport_no;
+    public function set_passport_no($passport_no) {
+        $this->passport_no = $passport_no;
     }
 }
