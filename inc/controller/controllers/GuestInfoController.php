@@ -43,8 +43,8 @@ class GuestInfoController extends BaseController {
         if (!$this->validateInputs(
             $first_name,
             $last_name,
-            $age,
             $gender,
+            $age,
             $phone_number,
             $email,
             $passport_no,
@@ -89,41 +89,34 @@ class GuestInfoController extends BaseController {
         $this->anchor("menuitem");
     }
 
-    private function validateInputs($first_name, $last_name, $age, $gender, $phone_number, $email, $passport_no, $license_no) {
+    private function validateInputs($first_name, $last_name, $gender, $age, $phone_number, $email, $passport_no, $license_no) {
         switch (false) {
             case $this->validator->isString($first_name):
                 $this->error("Enter a valid name!");
                 return false;
-                break;
             case $this->validator->isString($last_name):
                 $this->error("Enter a valid name!");
+                return false;
+            case $this->validator->validateGender($gender):
+                $this->error("Enter a valid gender!");
                 return false;
             case $this->validator->validateAge($age):
                 $this->error("Enter a valid age!");
                 return false;
-            case $this->validator->validateGender($gender):
-                $this->error("Enter a valid gender!");
-                break;
             case $this->validator->validatePhoneNumber($phone_number):
                 $this->error("Phone number should be a 7 digits!");
                 return false;
-                break;
             case $this->validator->isEmail($email):
                 $this->error("Enter a valid email!");
                 return false;
-                break;
             case $this->validator->isInt($passport_no):
                 $this->error("Enter a valid passport number!");
                 return false;
-                break;
             case $this->validator->isInt($license_no):
                 $this->error("Discount should be between 1 and 0! Example 0.1");
                 return false;
-                break;
             default:
                 return true;
-                break;
         }
-        return true;
     }
 }
