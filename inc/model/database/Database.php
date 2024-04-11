@@ -51,7 +51,7 @@ class Database {
             age                 INT,
             dob                 DATE,
             job_role            ENUM('owner',  'manager', 'cashier', 'cook', 'server','clerk') NOT NULL,
-            email               VARCHAR(20) NOT NULL,
+            email               VARCHAR(50) NOT NULL,
             contact_number      VARCHAR(20) NOT NULL,
             image_url           VARCHAR(100),
             status              ENUM('active', 'onleave','dismissed') DEFAULT 'active',
@@ -65,15 +65,15 @@ class Database {
             employee_id         INT,
             FOREIGN KEY         (employee_id) REFERENCES Employee(id) ON DELETE CASCADE,
             PRIMARY KEY         (id)
-        );",
+        );",//Change made here
         "CREATE TABLE IF NOT EXISTS GuestInfo(
-            id                  INT AUTO_INCREMENT,
+            id                  VARCHAR(13) NOT NULL, 
             first_name          VARCHAR(30) NOT NULL,
             last_name           VARCHAR(30) NOT NULL,
             gender              ENUM('Male', 'Female', 'Other') NOT NULL,
             age                 INT,
             phone_number        VARCHAR(20) NOT NULL,
-            email               VARCHAR(20) NOT NULL,
+            email               VARCHAR(50) NOT NULL,
             passport_no         VARCHAR(20) NOT NULL,
             license_no         VARCHAR(20) NOT NULL,
             PRIMARY KEY         (id)
