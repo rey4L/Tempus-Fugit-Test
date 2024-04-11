@@ -66,6 +66,16 @@ class Database {
             FOREIGN KEY         (employee_id) REFERENCES Employee(id) ON DELETE CASCADE,
             PRIMARY KEY         (id)
         );",//Change made here
+        "CREATE TABLE IF NOT EXISTS RoomInfo(
+            id                  INT AUTO_INCREMENT,
+            number              INT,
+            type                ENUM('Single', 'Double', 'Deluxe') DEFAULT 'Single' NOT NULL,
+            details             VARCHAR(100) NOT NULL,
+            price               FLOAT(25, 5) NOT NULL,
+            image_url           VARCHAR(100),
+            status              ENUM('Available', 'Occupied') DEFAULT 'Available',
+            PRIMARY KEY         (id)
+        );",
         "CREATE TABLE IF NOT EXISTS GuestInfo(
             id                  VARCHAR(13) NOT NULL, 
             first_name          VARCHAR(30) NOT NULL,
@@ -78,16 +88,6 @@ class Database {
             license_no         VARCHAR(20) NOT NULL,
             room_id             INT, 
             FOREIGN KEY         (room_id) REFERENCES RoomInfo(id) ON DELETE CASCADE,
-            PRIMARY KEY         (id)
-        );",
-        "CREATE TABLE IF NOT EXISTS RoomInfo(
-            id                  INT AUTO_INCREMENT,
-            number              INT,
-            type                ENUM('Single', 'Double', 'Deluxe') DEFAULT 'Single' NOT NULL,
-            details             VARCHAR(100) NOT NULL,
-            price               FLOAT(25, 5) NOT NULL,
-            image_url           VARCHAR(100),
-            status              ENUM('Available', 'Occupied') DEFAULT 'Available',
             PRIMARY KEY         (id)
         );"
     ];
@@ -305,7 +305,7 @@ class Database {
                 'type' => "Deluxe",
                 'details' => "This is a deluxe room",
                 'price' => 3000,
-                'image' => 'room5.jpg',
+                'image_url' => 'room5.jpg',
                 'status' => 'Available'
             ]
         ];
