@@ -57,7 +57,7 @@ class RoomInfoModel extends BaseModel {
     }
 
     public function findByPreferences() {
-        $sql = "SELECT * FROM RoomInfo WHERE status = :status AND type = :type AND number_of_beds = :number_of_beds AND view = :view";
+        $sql = "SELECT * FROM RoomInfo WHERE status = :status AND type = :type AND number_of_beds = :number_of_beds AND view = :view AND crib = :crib";
 
         $search_queries = [
             "status" => $this->status,

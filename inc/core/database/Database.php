@@ -54,7 +54,9 @@ class Database {
             email               VARCHAR(50) NOT NULL,
             contact_number      VARCHAR(20) NOT NULL,
             image_url           VARCHAR(100),
+            user_id             INT,
             status              ENUM('active', 'onleave','dismissed') DEFAULT 'active',
+            FOREIGN KEY         (user_id) REFERENCES User(id) ON DELETE CASCADE,
             PRIMARY KEY         (id)
         );",
          "CREATE TABLE IF NOT EXISTS User(
@@ -62,8 +64,6 @@ class Database {
             email               VARCHAR(100) NOT NULL,
             password            VARCHAR(100) NOT NULL,
             role                ENUM('manager', 'cashier') NOT NULL,
-            employee_id         INT,
-            FOREIGN KEY         (employee_id) REFERENCES Employee(id) ON DELETE CASCADE,
             PRIMARY KEY         (id)
         );",//Change made here
         "CREATE TABLE IF NOT EXISTS RoomInfo(
@@ -90,10 +90,22 @@ class Database {
             email               VARCHAR(50) NOT NULL,
             passport_no         VARCHAR(20) NOT NULL,
             license_no         VARCHAR(20) NOT NULL,
-            room_id             INT, 
-            FOREIGN KEY         (room_id) REFERENCES RoomInfo(id) ON DELETE CASCADE,
+            user_id             INT,
+            FOREIGN KEY         (user_id) REFERENCES User(id) ON DELETE CASCADE,
             PRIMARY KEY         (id)
-        );"
+        );",
+        "CREATE TABLE IF NOT EXISTS Reservation(
+            id                  INT AUTO_INCREMENT,
+            guest_id            VARCHAR(13),
+            user_id             INT,
+            room_id             INT,
+            check_in            BOOLEAN
+            FOREIGN KEY         (guest_id) REFERENCES GuestInfo(id) ON DELETE CASCADE,
+            FOREIGN KEY         (user_id) REFERENCES User(id) ON DELETE CASCADE,
+            FOREIGN KEY         (room_Id) REFERENCES RoomInfo(id) ON DELETE CASCADE,
+            PRIMARY KEY         (id)
+        )
+        "
     ];
 
 

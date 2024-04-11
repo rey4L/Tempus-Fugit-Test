@@ -14,11 +14,13 @@ class RoomManagementController {
         $view = "";
         $number_of_beds = 0;
         $availability = "";
+        $crib = false;
 
         $this->model->setType($type);
         $this->model->setStatus($availability);
         $this->model->setNumberOfBeds($number_of_beds);
         $this->model->setView($view);
+        $this->model->setCrib($crib);
 
         $result = $this->model->findByPreferences();
 
