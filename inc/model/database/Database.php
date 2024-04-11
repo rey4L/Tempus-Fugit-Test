@@ -77,7 +77,17 @@ class Database {
             passport_no         VARCHAR(20) NOT NULL,
             license_no         VARCHAR(20) NOT NULL,
             PRIMARY KEY         (id)
-        );"
+        );",
+            "CREATE TABLE IF NOT EXISTS RoomInfo(
+                id                  INT AUTO_INCREMENT,
+                number              INT,
+                type                ENUM('Single', 'Double', 'Deluxe') DEFAULT 'Single' NOT NULL,
+                details             VARCHAR(100) NOT NULL,
+                price               FLOAT(25, 5) NOT NULL,
+                image_url           VARCHAR(100),
+                status              ENUM('Available', 'occupied') DEFAULT 'active',
+                PRIMARY KEY         (id)
+            );"
     ];
 
     
@@ -93,6 +103,11 @@ class Database {
     private $initGuestDataSQL =
     "INSERT IGNORE INTO GuestInfo(id, first_name, last_name, gender, age, phone_number, email, passport_no, license_no)
      VALUES (:id, :first_name, :last_name, :gender, :age, :phone_number, :email, :passport_no, :license_no)
+    ";
+
+    private $initRoomDataSQL =
+    "INSERT IGNORE INTO RoomInfo(id, number, type, details, price, image_url, status)
+     VALUES (:id, :number, :type, :details, :price, :image_url, :status)
     ";
 
     public function connect() {
@@ -121,6 +136,7 @@ class Database {
                     $this->menuItemInit();
                     $this->employeeDataInit();
                     $this->guestDataInit();
+                    $this->roomDataInit();
                 }
             }
         } catch (PDOException $e) {
@@ -227,7 +243,7 @@ class Database {
         $guest_data = [
             [
                 'id' => 1,
-                'first_name' => "Jon",
+                'number' => 10,
                 'last_name' => "Snow",
                 'gender' => 1,
                 'age' => 37,
@@ -240,6 +256,64 @@ class Database {
 
         foreach ($guest_data as $data) {
             $statement = $this->connection->prepare($this->initGuestDataSQL);
+            $statement->execute($data);
+        }
+    }
+
+
+    private function roomDataInit() {
+
+
+        $room_data = [
+            [
+                'id' => 1,
+                'number' => 10,
+                'type' => "Single",
+                'details' => "This is a single room",
+                'price' => 1000,
+                'image' => 'room1.jpg',
+                'status' => 'available'
+            ],
+            [
+                'id' => 2,
+                'number' => 20,
+                'type' => "Single",
+                'details' => "This is a single room",
+                'price' => 1000,
+                'image' => 'room2.jpg',
+                'status' => 'available'
+            ],
+            [
+                'id' => 3,
+                'number' => 30,
+                'type' => "Double",
+                'details' => "This is a double room",
+                'price' => 2000,
+                'image' => 'room3.jpg',
+                'status' => 'available'  
+            ],
+            [
+                'id' => 4,
+                'number' => 40,
+                'type' => "Double",
+                'details' => "This is a double room",
+                'price' => 2000,
+                'image' => 'room4.jpg',
+                'status' => 'available'
+            ],
+            [
+                'id' => 5,
+                'number' => 50,
+                'type' => "Deluxe",
+                'details' => "This is a deluxe room",
+                'price' => 3000,
+                'image' => 'room5.jpg',
+                'status' => 'available'
+            ]
+        ];
+
+        foreach ($room_data as $data) {
+            $statement = $this->connection->prepare($this->initRoomDataSQL);
             $statement->execute($data);
         }
     }
