@@ -12,14 +12,15 @@ class RoomInfoModel extends BaseModel {
     private $cleaning_date;
     private $number_of_beds;
     private $view;
+    private $crib;
 
     public function __construct() {
         $this->connect();
     }
 
     public function create() {
-        $sql = "INSERT INTO RoomInfo (id, number, type, details, price, image_url, status, amenities, cleaning_date)
-        VALUES (:id, :number, :type, :details, :price, :image_url, :status, amenities, cleaning_date)";
+        $sql = "INSERT INTO RoomInfo (id, number, type, details, price, image_url, status, view, crib, number_of_beds, cleaning_date)
+        VALUES (:id, :number, :type, :details, :price, :image_url, :status, :view, :crib, :number_of_beds, cleaning_date)";
 
         $new_room = [
             "id"=>$this->id,
@@ -29,7 +30,9 @@ class RoomInfoModel extends BaseModel {
             "price" => $this->price,
             "image_url" => $this->image_url,
             "status" => $this->status,
-            "amenities" => $this->amenities,
+            "view" => $this->view,
+            "crib" => $this->crib,
+            "number_of_beds" => $this->number_of_beds,
             "cleaning_date" => $this->cleaning_date
         ];
 
@@ -60,7 +63,8 @@ class RoomInfoModel extends BaseModel {
             "status" => $this->status,
             "type" => $this->type,
             "number_of_beds" => $this->number_of_beds,
-            "view" => $this->view
+            "view" => $this->view,
+            "crib" => $this->crib,
         ];
 
         $statement = $this->connection->prepare($sql);
@@ -116,7 +120,7 @@ class RoomInfoModel extends BaseModel {
 
 
     public function update() {
-        $sql = "UPDATE RoomInfo SET number = :number, type = :type, details = :details, price = :price, image_url = :image_url, status = :status, amenities = :amenities, cleaning_date = :cleaning_date WHERE id = :id";
+        $sql = "UPDATE RoomInfo SET number = :number, type = :type, details = :details, price = :price, image_url = :image_url, status = :status, view = :view, crib = :crib, number_of_beds = :number_of_beds, cleaning_date = :cleaning_date WHERE id = :id";
 
         $updated_room_info = [
             "id" => $this->id,
@@ -126,7 +130,9 @@ class RoomInfoModel extends BaseModel {
             "price" => $this->price,
             "image_url" => $this->image_url,
             "status" => $this->status,
-            "amenities" => $this->amenities,
+            "view" => $this->view,
+            "crib" => $this->crib,
+            "number_of_beds" => $this->number_of_beds,
             "cleaning_date" => $this->cleaning_date
         ];
 
@@ -244,4 +250,12 @@ class RoomInfoModel extends BaseModel {
     public function getView($view) {
         return $this->view;
     } 
+
+    public function setCrib($crib) {
+        $this->crib = $crib;
+    }
+
+    public function getCrib() {
+        return $this->crib;
+    }
 }
