@@ -1,6 +1,19 @@
 <?php 
 
 class GuestInfoValidator extends Validator {
+    public function validateFirstName($first_name) {
+        if (!$this->isString($first_name)) return false;
+        return filter_var($first_name, 
+                FILTER_VALIDATE_REGEXP, 
+                ['options' => ['regexp' => '/^[a-zA-Z\s]+$/']]);
+    }
+
+    public function validateLastName($last_name) {
+        if (!$this->isString($last_name)) return false;
+        return filter_var($last_name, 
+                FILTER_VALIDATE_REGEXP, 
+                ['options' => ['regexp' => '/^[a-zA-Z\s]+$/']]);
+    }
     
     public function validateGender($gender) {
         $validGenders = ['Male','Female', 'Other'];
@@ -28,4 +41,5 @@ class GuestInfoValidator extends Validator {
         $ageInterval = $dobDate->diff($currentDate);
         return $ageInterval->y;
     }
+
 }
