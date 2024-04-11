@@ -80,10 +80,10 @@ class Router {
     private function controllerExists($filename) {
 
         $modules = ["room_management", "guest_registration", "check_in_check_out", "integration_and_accessibility", "reporting_and_analytics", "user_management_and_permissions"];
-
+        
         foreach ($modules as $module) {
-            $filename = __DIR__."/../modules/$module/controller/controllers/$filename.php";
-            if (file_exists($filename)) {
+            $file = __DIR__."/../modules/$module/controller/controllers/$filename";
+            if (file_exists($file.".php")) {
                 return true;
             }
         }
