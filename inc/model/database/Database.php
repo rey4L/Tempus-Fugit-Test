@@ -70,7 +70,7 @@ class Database {
             id                  INT AUTO_INCREMENT,
             first_name          VARCHAR(30) NOT NULL,
             last_name           VARCHAR(30) NOT NULL,
-            gender              ENUM('male', 'female', 'other') NOT NULL,
+            gender              ENUM('Male', 'Female', 'Other') NOT NULL,
             age                 INT,
             phone_number        VARCHAR(20) NOT NULL,
             email               VARCHAR(20) NOT NULL,
