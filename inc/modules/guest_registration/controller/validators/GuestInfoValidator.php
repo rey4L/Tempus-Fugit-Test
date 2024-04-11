@@ -16,7 +16,7 @@ class GuestInfoValidator extends Validator {
     }
     
     public function validateGender($gender) {
-        $validGenders = ['Male','Female', 'Other'];
+        $validGenders = ['male','female', 'other'];
         return in_array($gender, $validGenders);
     }
 
